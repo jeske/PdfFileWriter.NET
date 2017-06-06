@@ -28,6 +28,8 @@
 
 using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
+
 
 namespace TestPdfFileWriter
 {
@@ -37,7 +39,27 @@ public static class ExceptionReport
 	// Get exception message and exception stack
 	/////////////////////////////////////////////////////////////////////
 
-	public static String[] GetMessageAndStack
+
+    public static void Wrap(string reason, Action fn) {
+        // don't catch these exceptions if a debugger is attached
+        if (System.Diagnostics.Debugger.IsAttached) {
+            fn(); 
+            return;
+        } else {
+            try {
+                fn();
+                return;
+            } catch (Exception Ex) {
+                // error exit
+                String[] ExceptionStack = ExceptionReport.GetMessageAndStack(Ex);                
+                MessageBox.Show(reason + "\n" + ExceptionStack[0] + "\n" + ExceptionStack[1],
+                    "TestPdfFileWriter Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+        }
+    }
+
+	private static String[] GetMessageAndStack
 			(
 			Exception		Ex
 			)

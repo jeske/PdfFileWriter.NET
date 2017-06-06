@@ -79,24 +79,14 @@ public partial class TestPdfFileWriter : Form
 			object sender,
 			EventArgs e
 			)
-		{
-		try
-			{
+        {
+		ExceptionReport.Wrap("PDF Document creation falied", delegate { 
+			
 			ArticleExample AE = new ArticleExample();
 			AE.Test(DebugCheckBox.Checked, "ArticleExample.pdf");
 			return;
-			}
-
-		catch (Exception Ex)
-			{
-			// error exit
-			String[] ExceptionStack = ExceptionReport.GetMessageAndStack(Ex);
-			MessageBox.Show(this, "PDF Document creation falied\n" + ExceptionStack[0] + "\n" + ExceptionStack[1],
-				"PDFDocument Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-			return;
-			}
-		}
-
+	    });
+    }
 	////////////////////////////////////////////////////////////////////
 	// Other example
 	////////////////////////////////////////////////////////////////////
@@ -107,22 +97,13 @@ public partial class TestPdfFileWriter : Form
 			EventArgs e
 			)
 		{
-		try
-			{
+        ExceptionReport.Wrap("PDF Document creation falied",delegate {
+            
 			OtherExample OE = new OtherExample();
 			OE.Test(DebugCheckBox.Checked, "OtherExample.pdf");
 			return;
-			}
-
-		catch (Exception Ex)
-			{
-			// error exit
-			String[] ExceptionStack = ExceptionReport.GetMessageAndStack(Ex);
-			MessageBox.Show(this, "PDF Document creation falied\n" + ExceptionStack[0] + "\n" + ExceptionStack[1],
-				"PDFDocument Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-			return;
-			}
-		}
+	    });
+        }
 
 	////////////////////////////////////////////////////////////////////
 	// Chart Example
@@ -130,21 +111,12 @@ public partial class TestPdfFileWriter : Form
 
 	private void OnChartExample(object sender, EventArgs e)
 		{
-		try
-			{
+        ExceptionReport.Wrap("PDF Document creation falied",delegate
+            {            
 			ChartExample CE = new ChartExample();
 			CE.Test(DebugCheckBox.Checked, "ChartExample.pdf");
 			return;
-			}
-
-		catch (Exception Ex)
-			{
-			// error exit
-			String[] ExceptionStack = ExceptionReport.GetMessageAndStack(Ex);
-			MessageBox.Show(this, "PDF Document creation falied\n" + ExceptionStack[0] + "\n" + ExceptionStack[1],
-				"PDFDocument Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-			return;
-			}
+			});
 		}
 
 	////////////////////////////////////////////////////////////////////
@@ -153,23 +125,14 @@ public partial class TestPdfFileWriter : Form
 
 	private void OnPrintExample(object sender, EventArgs e)
 		{
-		try
-			{
-			PrintExample PE = new PrintExample();
-			PE.Test(DebugCheckBox.Checked, "PrintExample.pdf");
-//			ProgramTestExample PTE = new ProgramTestExample();
-//			PTE.Test(DebugCheckBox.Checked, "ProgramTestExample.pdf");
-			return;
-			}
-
-		catch (Exception Ex)
-			{
-			// error exit
-			String[] ExceptionStack = ExceptionReport.GetMessageAndStack(Ex);
-			MessageBox.Show(this, "PDF Document creation falied\n" + ExceptionStack[0] + "\n" + ExceptionStack[1],
-				"PDFDocument Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-			return;
-			}
+            ExceptionReport.Wrap("PDF Document creation falied",delegate       
+			    {
+			    PrintExample PE = new PrintExample();
+			    PE.Test(DebugCheckBox.Checked, "PrintExample.pdf");
+    //			ProgramTestExample PTE = new ProgramTestExample();
+    //			PTE.Test(DebugCheckBox.Checked, "ProgramTestExample.pdf");
+			    return;
+			    });
 		}
 
 	////////////////////////////////////////////////////////////////////
@@ -178,21 +141,12 @@ public partial class TestPdfFileWriter : Form
 
 	private void OnTableExample(object sender, EventArgs e)
 		{
-		try
-			{
-			TableExample TE = new TableExample();
-			TE.Test(DebugCheckBox.Checked, "TableExample.pdf");
-			return;
-			}
-
-		catch (Exception Ex)
-			{
-			// error exit
-			String[] ExceptionStack = ExceptionReport.GetMessageAndStack(Ex);
-			MessageBox.Show(this, "PDF Document creation falied\n" + ExceptionStack[0] + "\n" + ExceptionStack[1],
-				"PDFDocument Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-			return;
-			}
+            ExceptionReport.Wrap("PDF Document creation falied",delegate
+			    {
+			    TableExample TE = new TableExample();
+			    TE.Test(DebugCheckBox.Checked, "TableExample.pdf");
+			    return;
+			    });
 		}
 
 	////////////////////////////////////////////////////////////////////

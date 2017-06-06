@@ -299,7 +299,7 @@ public class ChartExample
 
 		// open stock daily price
 		// takem from Yahoo Financial
-		StreamReader Reader = new StreamReader("SP500.csv");
+		StreamReader Reader = new StreamReader("TestFiles/SP500.csv");
 
 		// ignore header
 		Reader.ReadLine();

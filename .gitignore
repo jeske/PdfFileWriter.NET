@@ -1,0 +1,10 @@
+
+
+# gitignore
+
+*.suo
+.vs/
+PdfFileWriter/bin/
+PdfFileWriter/obj/
+TestPdfFileWriter/bin/
+TestPdfFileWriter/obj/

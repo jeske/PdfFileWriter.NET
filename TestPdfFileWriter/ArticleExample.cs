@@ -366,7 +366,7 @@ public class ArticleExample
 		ImageControl.ImageQuality = 50;
 //		ImageControl.SaveAs = SaveImageAs.GrayImage;
 //		ImageControl.ReverseBW = true;
-		PdfImage Image1 = new PdfImage(Document, "TestImage.jpg", ImageControl);
+		PdfImage Image1 = new PdfImage(Document, "TestFiles/TestImage.jpg", ImageControl);
 
 		// save graphics state
 		Contents.SaveGraphicsState();

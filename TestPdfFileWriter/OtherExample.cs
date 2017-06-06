@@ -799,7 +799,7 @@ public class OtherExample
 		// image resource
 		PdfImageControl ImageControl = new PdfImageControl();
 		ImageControl.Resolution = 300.0;
-		PdfImage Image1 = new PdfImage(Document, "TestImage.jpg", ImageControl);
+		PdfImage Image1 = new PdfImage(Document, "TestFiles/TestImage.jpg", ImageControl);
 
 		// adjust image size and position
 		PdfRectangle NewSize = Image1.ImageSizePosition(0.9 * AreaWidth, 0.9 * AreaHeight, ContentAlignment.MiddleCenter);
@@ -833,7 +833,7 @@ public class OtherExample
 		PdfImageControl ImageControl = new PdfImageControl();
 		ImageControl.Resolution = 300.0;
 		ImageControl.CropPercent = new RectangleF(50.0F, 38.0F, 40.0F, 40.0F);
-		PdfImage Image1 = new PdfImage(Document, "TestImage.jpg", ImageControl);
+		PdfImage Image1 = new PdfImage(Document, "TestFiles/TestImage.jpg", ImageControl);
 
 		// adjust image size and position
 		PdfRectangle NewSize = Image1.ImageSizePosition(0.9 * AreaWidth, 0.9 * AreaHeight, ContentAlignment.MiddleCenter);
@@ -1673,7 +1673,7 @@ public class OtherExample
 		PdfRectangle AnnotRect = ImageSizePos.ImageArea(480, 360, AreaLeft, AreaBottom, AreaRight - AreaLeft, AreaTop - AreaBottom, ContentAlignment.MiddleCenter);
 
 		// create display media object
-		PdfDisplayMedia DisplayMedia = new PdfDisplayMedia(PdfEmbeddedFile.CreateEmbeddedFile(Document, "LooneyTunes.mp4"));
+		PdfDisplayMedia DisplayMedia = new PdfDisplayMedia(PdfEmbeddedFile.CreateEmbeddedFile(Document, "TestFiles/LooneyTunes.mp4"));
 
 		// create annotation object
 		PdfAnnotation Annotation = Page.AddScreenAction(AnnotRect, DisplayMedia);
@@ -1721,7 +1721,7 @@ public class OtherExample
 			)
 		{
 		// create display media object
-		PdfDisplayMedia DisplayMedia = new PdfDisplayMedia(PdfEmbeddedFile.CreateEmbeddedFile(Document, "Omega.mp4"));
+		PdfDisplayMedia DisplayMedia = new PdfDisplayMedia(PdfEmbeddedFile.CreateEmbeddedFile(Document, "TestFiles/Omega.mp4"));
 
 		// activate display controls
 		DisplayMedia.DisplayControls(true);
@@ -1761,7 +1761,7 @@ public class OtherExample
 			)
 		{
 		// create embedded media file
-		PdfDisplayMedia DisplayMedia = new PdfDisplayMedia(PdfEmbeddedFile.CreateEmbeddedFile(Document, "Ring01.wav"));
+		PdfDisplayMedia DisplayMedia = new PdfDisplayMedia(PdfEmbeddedFile.CreateEmbeddedFile(Document, "TestFiles/Ring01.wav"));
 		DisplayMedia.SetMediaWindow(MediaWindow.Hidden);
 		AnnotDisplayMedia RingSound = new AnnotDisplayMedia(DisplayMedia);
 
@@ -1789,7 +1789,7 @@ public class OtherExample
 			)
 		{
 		// create embedded media file
-		PdfEmbeddedFile EmbeddedFile = PdfEmbeddedFile.CreateEmbeddedFile(Document, "BookList.txt");
+		PdfEmbeddedFile EmbeddedFile = PdfEmbeddedFile.CreateEmbeddedFile(Document, "TestFiles/BookList.txt");
 		AnnotFileAttachment FileIcon = new AnnotFileAttachment(EmbeddedFile, FileAttachIcon.Paperclip);
 
 		// display text area to activate the file attachment
@@ -1829,7 +1829,7 @@ public class OtherExample
 		Contents.DrawTextWithAnnotation(Page, ArialNormal, 12, PosX + 0.5 * AreaWidth, PosY + 0.5 * AreaHeight,
 			TextJustify.Center, DrawStyle.Normal, Color.DarkViolet,
 			"Right click to open or save the attached file,",
-			new AnnotFileAttachment(PdfEmbeddedFile.CreateEmbeddedFile(Document, "BookList.txt")));
+			new AnnotFileAttachment(PdfEmbeddedFile.CreateEmbeddedFile(Document, "TestFiles/BookList.txt")));
 
 		// example note
 		Contents.DrawText(ArialNormal, NoteSize, PosX + NoteX, PosY + NoteY0, "Example 7e: File attachment without icon");
@@ -1850,7 +1850,7 @@ public class OtherExample
 		TextBox Box = new TextBox(AreaWidth - 0.2);
  
 		// create display media object
-		PdfDisplayMedia Omega = new PdfDisplayMedia(PdfEmbeddedFile.CreateEmbeddedFile(Document, "Omega.mp4"));
+		PdfDisplayMedia Omega = new PdfDisplayMedia(PdfEmbeddedFile.CreateEmbeddedFile(Document, "TestFiles/Omega.mp4"));
 		Omega.DisplayControls(true);
 		Omega.RepeatCount(0);
 		Omega.SetMediaWindow(MediaWindow.Floating, 640, 360, WindowPosition.Center,
@@ -1859,7 +1859,7 @@ public class OtherExample
 		Box.AddText(ArialNormal, 11, DrawStyle.Underline, Color.Blue, "Omega commercial\n", new AnnotDisplayMedia(Omega));
 
 		// create embedded media file
-		PdfDisplayMedia RingSound = new PdfDisplayMedia(PdfEmbeddedFile.CreateEmbeddedFile(Document, "Ring01.wav"));
+		PdfDisplayMedia RingSound = new PdfDisplayMedia(PdfEmbeddedFile.CreateEmbeddedFile(Document, "TestFiles/Ring01.wav"));
 		RingSound.SetMediaWindow(MediaWindow.Hidden);
 		Box.AddText(ArialNormal, 11, "Sound file: ");
 		Box.AddText(ArialNormal, 11, "Ring Tone: \n", new AnnotDisplayMedia(RingSound));
@@ -1875,7 +1875,7 @@ public class OtherExample
 		Box.AddText(ArialNormal, 11, "Page 8: \n", new AnnotLinkAction("Page8"));
 
 		// create embedded media file
-		PdfEmbeddedFile EmbeddedFile = PdfEmbeddedFile.CreateEmbeddedFile(Document, "BookList.txt");
+		PdfEmbeddedFile EmbeddedFile = PdfEmbeddedFile.CreateEmbeddedFile(Document, "TestFiles/BookList.txt");
 		Box.AddText(ArialNormal, 11, "View attached file: ");
 		Box.AddText(ArialNormal, 11, "Book List: \n", new AnnotFileAttachment(EmbeddedFile, FileAttachIcon.NoIcon));
 

@@ -152,7 +152,7 @@ public class TableExample
 		BookList.Cell[5].Style.Alignment = ContentAlignment.MiddleRight;
 
 		// book list text file
-		StreamReader Reader = new StreamReader("BookList.txt");
+		StreamReader Reader = new StreamReader("TestFiles/BookList.txt");
 
 		// loop for records
 		for(;;)
@@ -166,7 +166,7 @@ public class TableExample
 			if(Fld.Length != 8) continue;
 
 			// book cover
-			BookList.Cell[0].Value = new PdfImage(Document, Fld[6]);
+			BookList.Cell[0].Value = new PdfImage(Document, Path.Combine("TestFiles/", Fld[6]));
 
 			// note create text box set Value field
 			TextBox Box = BookList.Cell[1].CreateTextBox();
@@ -307,7 +307,7 @@ public class TableExample
 
 		// open stock daily price
 		// takem from Yahoo Financial
-		StreamReader Reader = new StreamReader("SP500.csv");
+		StreamReader Reader = new StreamReader("TestFiles/SP500.csv");
 
 		// ignore header
 		Reader.ReadLine();
