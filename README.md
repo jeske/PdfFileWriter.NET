@@ -13,6 +13,7 @@ PdfFileWriter currently only works under Windows, at least because:
 
 * It uses Windows DLLImport calls to access detailed font metrics and glyphs, to embed them in the PDF
 * It reuses datatypes from System.Drawing, WPF, and System.Windows.Forms
+* It supports System.Drawing.Printing's PrintDocument interface, to write PDF
 
-The latter should be easy to change, as PDF File Writer doesn't rasterize PDF, it just reuses datatypes for convenience. The font calls would need to be stubbed out and implemented portably across platforms. 
+The datatype use should be easy to change, as PDF File Writer doesn't rasterize PDF, it just reuses datatypes for convenience. The font calls would need to be stubbed out and implemented portably across platforms. 
 
